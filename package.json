@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cypress/react-tooltip": "^0.3.2",
     "antd": "^2.13.11",
     "axios": "^0.17.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "react-tooltip": "^3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

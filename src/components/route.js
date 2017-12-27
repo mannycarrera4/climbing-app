@@ -8,7 +8,7 @@ class Route extends React.Component {
         <td>{this.props.routeDetails.rating}</td>
         <td>{this.props.routeDetails.location}</td>
         <td>
-          <button>Edit</button>
+          <button onClick={() => this.props.editRoute(this.props.index)}>Edit</button>
           <button onClick={() => this.props.removeRoute(this.props.index)}>Delete</button>
         </td>
       </tr>

@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@cypress/react-tooltip@^0.3.2":
+  version "0.3.2"
+  resolved "https://artifactory.workday.com/artifactory/api/npm/npm-virtual/@cypress/react-tooltip/-/react-tooltip-0.3.2.tgz#0172348ab129241fb7d02f9a64a464b9eead0767"
+  dependencies:
+    popper.js "^1.12.9"
+    prop-types "15.6.0"
+
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://artifactory.workday.com/artifactory/api/npm/npm-virtual/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -4749,6 +4756,10 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://artifactory.workday.com/artifactory/api/npm/npm-virtual/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
+popper.js@^1.12.9:
+  version "1.13.0"
+  resolved "https://artifactory.workday.com/artifactory/api/npm/npm-virtual/popper.js/-/popper.js-1.13.0.tgz#e1e7ff65cc43f7cf9cf16f1510a75e81f84f4565"
+
 portfinder@^1.0.9:
   version "1.0.13"
   resolved "https://artifactory.workday.com/artifactory/api/npm/npm-virtual/portfinder/-/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
@@ -5099,7 +5110,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.x, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0:
+prop-types@15.6.0, prop-types@15.x, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://artifactory.workday.com/artifactory/api/npm/npm-virtual/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -5636,6 +5647,13 @@ react-slick@~0.15.4:
     json2mq "^0.2.0"
     object-assign "^4.1.0"
     slick-carousel "^1.6.0"
+
+react-tooltip@^3.4.0:
+  version "3.4.0"
+  resolved "https://artifactory.workday.com/artifactory/api/npm/npm-virtual/react-tooltip/-/react-tooltip-3.4.0.tgz#037f38f797c3e6b1b58d2534ccc8c2c76af4f52d"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.0"
 
 react@^16.2.0:
   version "16.2.0"
