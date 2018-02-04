@@ -1,12 +1,14 @@
 import React from 'react';
 
 class EditRoute extends React.Component {
-  contructor(props) {
+  constructor(props) {
+    super(props)
+    console.warn('props', props)
     // this.handleChange = this.handleChange.bind(this);
-    this.state({
-      value: ''
-    })
-    console.warn(this.props.routeToUpdate)
+    // this.state({
+    //   value: ''
+    // })
+    // console.warn(this.props.routeToUpdate)
   }
   handleChange(event) {
     // console.warn(event.target.value)
@@ -24,15 +26,15 @@ class EditRoute extends React.Component {
     }
     // console.warn(updatedRoute)
     // console.warn(this.props.routeToUpdate)
-    // this.props.updatedRoute(updatedRoute)
+    this.props.updatedRoute(this.props.routeKey, updatedRoute)
   }
   render() {
     // console.warn(this.props.routeToUpdate.name)
     return (
       <form ref={(input) => this.editRouteForm = input} onSubmit={(e) => this.handleEditRoute(e)}>
-        <input ref={(input) => this.name = input} type="text" value={this.props.routeToUpdate.name} onChange={this.handleChange.bind(this)} />
-        <input ref={(input) => this.rating = input} type="text" value={this.props.routeToUpdate.rating} onChange={this.handleChange.bind(this)} />
-        <input ref={(input) => this.location = input} type="text" value={this.props.routeToUpdate.location} onChange={this.handleChange.bind(this)} />
+        <input ref={(input) => this.name = input} type="text" defaultValue={this.props.routeToUpdate.name} onChange={this.handleChange.bind(this)} />
+        <input ref={(input) => this.rating = input} type="text" defaultValue={this.props.routeToUpdate.rating}  />
+        <input ref={(input) => this.location = input} type="text" defaultValue={this.props.routeToUpdate.location}  />
         <button type="submit">Submit Edit</button>
       </form>
     )

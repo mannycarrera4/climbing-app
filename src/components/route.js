@@ -1,4 +1,6 @@
 import React from 'react';
+import { Icon, Button } from 'antd'
+import './table.css'
 
 class Route extends React.Component {
   render() {
@@ -8,8 +10,11 @@ class Route extends React.Component {
         <td>{this.props.routeDetails.rating}</td>
         <td>{this.props.routeDetails.location}</td>
         <td>
-          <button onClick={() => this.props.editRoute(this.props.index)}>Edit</button>
-          <button onClick={() => this.props.removeRoute(this.props.index)}>Delete</button>
+          <Button className='button-table ' onClick={() => this.props.editRoute(this.props.index)} type='primary'>
+            Edit
+            <Icon type="edit" />
+          </Button>
+          <Button onClick={() => this.props.removeRoute(this.props.index)} type='danger'>Delete</Button>
         </td>
       </tr>
     )

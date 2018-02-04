@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import sampleRoutes from './sampleRoutes'
+import {Row, Col } from 'antd';
 import Button from 'antd/lib/button';
+import Header from './components/header'
 import Route from './components/route'
-import AddNewRoute from './components/addNewRoute'
 import EditRoute from './components/editRoute'
 import ReactTooltip from 'react-tooltip'
 import './App.css';
@@ -55,23 +56,33 @@ class App extends Component {
     // delete routes[routeKey]
     this.setState({
       dataFromChild: routeData,
-      editingRoute: true
+      editingRoute: true,
+      routeKey: routeKey
       // routes: routeData
 
     });
   }
 
   updatedRoute(key, updatedRoute) {
-    console.warn(updatedRoute)
+    let routes = {...this.state.routes};
+    const newRoute = updatedRoute
+    const oldRoute = routes[key]
+    // console.warn(oldRoute)
+    // console.warn(updatedRoute)
+    const newUpdatedRoute = Object.assign(oldRoute, newRoute)
+    console.warn(newUpdatedRoute)
+    this.setState({ newUpdatedRoute })
   }
 
   addNewRoute(route) {
-    // console.warn(route)
     let routes = {...this.state.routes};
     const timestamp = Date.now(); // create a unique key for route
     routes[`route-${timestamp}`] = route;
     // console.warn(route)
-    this.setState({ routes });
+    this.setState({
+      routes,
+      hideAddNewRoute: false
+    });
   }
 
   componentDidMount() {
@@ -95,15 +106,13 @@ class App extends Component {
     // const showEditForm = this.state.edi
     let editForm
     editForm = this.state.editingRoute
-      ? <EditRoute editRoute={this.editRoute.bind(this)} updatedRoute={this.updatedRoute.bind(this)} routeToUpdate={this.state.dataFromChild}/>
+      ? <EditRoute editRoute={this.editRoute.bind(this)} updatedRoute={this.updatedRoute.bind(this)} routeKey={this.state.routeKey} routeToUpdate={this.state.dataFromChild}/>
       : null
     return (
       <div className="App">
-        <Button type="primary" onClick={this.loadSampleRoutes}>Load Routes</Button>
+        <Header loadRoutes={this.loadSampleRoutes.bind(this)} addNewRoute={this.addNewRoute.bind(this)} hideNewRoute={this.state.hideNewRoute} />
         <div>
           <h3>{this.state.date}</h3>
-          <ReactTooltip place="top" type="dark" effect="float"/>
-          <AddNewRoute addRoute={this.addNewRoute.bind(this)}/>
           {editForm}
           <table className="MyClassName">
             <thead>

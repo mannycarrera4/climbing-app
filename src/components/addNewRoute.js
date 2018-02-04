@@ -1,26 +1,55 @@
 import React from 'react';
+import { Form, Input, Button } from 'antd';
+const FormItem = Form.Item;
 
 class AddNewRoute extends React.Component {
-  createRoute(event) {
-    event.preventDefault()
+  constructor(props) {
+    super(props)
+  }
+  createRoute = (e) => {
+    e.preventDefault()
     const route = {
-      name: this.name.value,
-      rating: this.rating.value,
-      location: this.location.value
+      name: this.props.form.getFieldValue('routeName'),
+      rating: this.props.form.getFieldValue('routeRating'),
+      location: this.props.form.getFieldValue('routeLocation')
     }
+    console.warn(route)
     this.props.addRoute(route)
-    this.routeForm.reset()
+    this.props.form.resetFields()
   }
   render() {
+    const { getFieldDecorator } = this.props.form;
     return (
-      <form ref={(input) => this.routeForm = input} className="fish-edit" onSubmit={(e) => this.createRoute(e)}>
-        <input ref={(input) => this.name = input} type="text" placeholder="Route Name" />
-        <input ref={(input) => this.rating = input} type="text" placeholder="Route Rating" />
-        <input ref={(input) => this.location = input} type="text" placeholder="Route Location" />
-        <button type="submit">+ Add Item</button>
-      </form>
+      <Form layout="inline" onSubmit={this.createRoute}>
+        <FormItem>
+          {getFieldDecorator('routeName', {
+            rules: [{  message: 'Please input your username!' }],
+          })(
+            <Input type="text" placeholder="Route Name"/>
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('routeRating', {
+            rules: [{  message: 'Please input your username!' }],
+          })(
+            <Input type="text" placeholder="Route Rating"/>
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('routeLocation', {
+            rules: [{  message: 'Please input your username!' }],
+          })(
+            <Input type="text" placeholder="Route Location"/>
+          )}
+        </FormItem>
+        <FormItem>
+          <Button htmlType="submit">+ Add Item</Button>
+        </FormItem>
+      </Form>
     )
   }
 }
 
-export default AddNewRoute;
+const WrappedAddNewRouteForm = Form.create()(AddNewRoute);
+
+export default WrappedAddNewRouteForm;

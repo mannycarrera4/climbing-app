@@ -1,0 +1,16 @@
+.button-table  {
+  margin-right: 5px;
+}
+
+#title {
+  color: white;
+  border: none;
+  background: none;
+  font-size: 24px;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: white;
+  }
+}
