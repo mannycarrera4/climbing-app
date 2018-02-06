@@ -17,20 +17,17 @@ class Header extends React.Component {
       showAddNewRoute: true
     })
   }
+  // <a className='add-route-link' onClick={this.clickAddNewRoute}>Add Route</a>
   render() {
     return (
       <div>
         <div className='header-container'>
           <Title/>
           <div>
-            <a className='add-route-link' onClick={this.clickAddNewRoute}>Add Route</a>
+            <AddNewRoute addRoute={this.props.addNewRoute}/>
             <LoadRoutes loadRoutes={this.props.loadRoutes}/>
           </div>
         </div>
-        { this.state.showAddNewRoute && !this.props.hideNewRoute
-            ? <AddNewRoute addRoute={this.props.addNewRoute}/>
-            : null
-        }
       </div>
     )
   }

@@ -15,7 +15,9 @@ class Title extends React.Component {
   }
   render() {
     return (
-      <input id='title' type='text' placeholder={this.state.title} onChange={this.handleChange.bind(this)}/>
+      <div>
+        <input id='title' type='text' placeholder={this.state.title} onChange={this.handleChange.bind(this)}/>
+      </div>
     )
   }
 }
