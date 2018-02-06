@@ -2,8 +2,11 @@
   margin-right: 5px;
 }
 
+thead {
+  border-bottom: 1px solid #dee1e6;
+}
+
 #title {
-  color: white;
   border: none;
   background: none;
   font-size: 24px;
@@ -11,6 +14,6 @@
     outline: none;
   }
   &::placeholder {
-    color: white;
+    color: #364862;
   }
 }

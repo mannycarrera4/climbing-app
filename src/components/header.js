@@ -23,7 +23,7 @@ class Header extends React.Component {
         <div className='header-container'>
           <Title/>
           <div>
-            <a onClick={this.clickAddNewRoute}>Add Route</a>
+            <a className='add-route-link' onClick={this.clickAddNewRoute}>Add Route</a>
             <LoadRoutes loadRoutes={this.props.loadRoutes}/>
           </div>
         </div>

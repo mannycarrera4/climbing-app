@@ -2,9 +2,9 @@
 .App {
   height: 100vh;
   width: 100vw;
-  background-color: #0f1c29;
+  background-color: #fff;
   padding: 40px;
-  color: #fff; }
+  color: #364862; }
 
 @keyframes App-logo-spin {
   from {
@@ -22,7 +22,10 @@ td, th {
   padding: 8px; }
 
 tr:hover {
-  background-color: #1c344a; }
+  background-color: #f4f5f7; }
+
+thead > tr:hover {
+  background-color: none; }
 
 .table-row {
   border-top: 1px solid #dddddd;

@@ -1,13 +1,10 @@
-.header-title {
-  color: white;
-  border-bottom: 1px dotted #008a63;
-  font-weight: lighter;
-  padding-bottom: 10px;
-}
-
 .header-container {
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+
+.add-route-link {
+  margin-right: 20px;
 }
