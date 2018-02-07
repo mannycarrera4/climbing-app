@@ -56,8 +56,8 @@ class Route extends React.Component {
           cancelText= 'Cancel'
           okText='Submit'
         >
-        <Form layout="inline">
-          <FormItem>
+        <Form layout="vertical">
+          <FormItem label='Route Name'>
             {getFieldDecorator('routeName', {
               rules: [{  message: 'Please input your username!' }],
               initialValue: this.props.routeDetails.name
@@ -65,7 +65,7 @@ class Route extends React.Component {
               <Input type="text" placeholder={this.props.routeDetails.name}/>
             )}
           </FormItem>
-          <FormItem>
+          <FormItem label='Route Rating'>
             {getFieldDecorator('routeRating', {
               rules: [{  message: 'Please input your username!' }],
               initialValue: this.props.routeDetails.rating
@@ -73,7 +73,7 @@ class Route extends React.Component {
               <Input type="text" placeholder={this.props.routeDetails.rating}/>
             )}
           </FormItem>
-          <FormItem>
+          <FormItem label='Route Location'>
             {getFieldDecorator('routeLocation', {
               rules: [{  message: 'Please input your username!' }],
               initialValue: this.props.routeDetails.location

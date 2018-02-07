@@ -4,7 +4,6 @@ import {Row, Col } from 'antd';
 import Button from 'antd/lib/button';
 import Header from './components/header'
 import WrappedRoute from './components/route'
-import EditRoute from './components/editRoute'
 import ReactTooltip from 'react-tooltip'
 import './App.css';
 // import 'antd/dist/antd.css';
@@ -103,17 +102,11 @@ class App extends Component {
   }
 
   render() {
-    // const showEditForm = this.state.edi
-    let editForm
-    editForm = this.state.editingRoute
-      ? <EditRoute editRoute={this.editRoute.bind(this)} updatedRoute={this.updatedRoute.bind(this)} routeKey={this.state.routeKey} routeToUpdate={this.state.dataFromChild}/>
-      : null
     return (
       <div className="App">
         <Header loadRoutes={this.loadSampleRoutes.bind(this)} addNewRoute={this.addNewRoute.bind(this)} hideNewRoute={this.state.hideNewRoute} />
         <div>
           <h3>{this.state.date}</h3>
-          {editForm}
           <table className="MyClassName">
             <thead>
               <tr>

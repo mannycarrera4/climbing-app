@@ -12,11 +12,6 @@ class AddNewRoute extends React.Component {
       confirmLoading: false
     }
   }
-  // state = {
-  //   ModalText: 'Content of the modal',
-  //   visible: false,
-  //   confirmLoading: false,
-  // }
   showModal = () => {
     this.setState({
       visible: true,
@@ -73,26 +68,26 @@ class AddNewRoute extends React.Component {
           okText='Submit'
         >
           <div>
-            <Form layout="inline">
-              <FormItem>
+            <Form layout="vertical">
+              <FormItem label='Route Name'>
                 {getFieldDecorator('routeName', {
                   rules: [{  message: 'Please input your username!' }],
                 })(
-                  <Input type="text" placeholder="Route Name"/>
+                  <Input type="text" placeholder="Enter a Route Name"/>
                 )}
               </FormItem>
-              <FormItem>
+              <FormItem label='Route Rating'>
                 {getFieldDecorator('routeRating', {
                   rules: [{  message: 'Please input your username!' }],
                 })(
-                  <Input type="text" placeholder="Route Rating"/>
+                  <Input type="text" placeholder="Enter a Route Rating"/>
                 )}
               </FormItem>
-              <FormItem>
+              <FormItem label='Route Location'>
                 {getFieldDecorator('routeLocation', {
                   rules: [{  message: 'Please input your username!' }],
                 })(
-                  <Input type="text" placeholder="Route Location"/>
+                  <Input type="text" placeholder="Enter a Route Location"/>
                 )}
               </FormItem>
             </Form>

@@ -17,7 +17,6 @@ class Header extends React.Component {
       showAddNewRoute: true
     })
   }
-  // <a className='add-route-link' onClick={this.clickAddNewRoute}>Add Route</a>
   render() {
     return (
       <div>
