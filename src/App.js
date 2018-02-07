@@ -3,7 +3,7 @@ import sampleRoutes from './sampleRoutes'
 import {Row, Col } from 'antd';
 import Button from 'antd/lib/button';
 import Header from './components/header'
-import Route from './components/route'
+import WrappedRoute from './components/route'
 import EditRoute from './components/editRoute'
 import ReactTooltip from 'react-tooltip'
 import './App.css';
@@ -128,13 +128,13 @@ class App extends Component {
                 Object
                 .keys(this.state.routes)
                 .map(key =>
-                  <Route
+                  <WrappedRoute
                     key={key}
                     routeDetails={this.state.routes[key]}
                     index={key}
                     editRoute={this.editRoute.bind(this)}
                     removeRoute={this.deleteRoute.bind(this)}>
-                  </Route>
+                  </WrappedRoute>
                 )
               }
             </tbody>
