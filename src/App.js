@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import sampleRoutes from './sampleRoutes'
-import {Row, Col } from 'antd';
-import Button from 'antd/lib/button';
 import Header from './components/header'
 import WrappedRoute from './components/route'
-import ReactTooltip from 'react-tooltip'
 import './App.css';
 // import 'antd/dist/antd.css';
 
@@ -127,7 +124,6 @@ class App extends Component {
                     index={key}
                     editRoute={this.editRoute.bind(this)}
                     removeRoute={this.deleteRoute.bind(this)}
-                    editRoute={this.editRoute.bind(this)}
                     updatedRoute={this.updatedRoute.bind(this)}
                     >
                   </WrappedRoute>

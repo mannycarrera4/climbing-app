@@ -18,7 +18,6 @@ class Route extends React.Component {
     this.handleEditRoute()
   }
   handleCancel = (e) => {
-    // console.log(e);
     this.setState({
       visible: false,
     });
@@ -33,9 +32,7 @@ class Route extends React.Component {
     this.props.updatedRoute(this.props.index, updatedRoute)
   }
   render() {
-    const { visible, confirmLoading, ModalText } = this.state;
     const { getFieldDecorator } = this.props.form;
-    // console.warn(this.props.form)
     return (
       <tr>
         <td>{this.props.routeDetails.name}</td>

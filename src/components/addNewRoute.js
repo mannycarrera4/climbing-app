@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Form, Input, Icon } from 'antd';
+import { Modal, Form, Input, Icon } from 'antd';
 const FormItem = Form.Item;
 
 class AddNewRoute extends React.Component {
@@ -7,7 +7,6 @@ class AddNewRoute extends React.Component {
     super(props)
     this.state = {
       addNewRouteForm: true,
-      ModalText: 'Content of the modal',
       visible: false,
       confirmLoading: false
     }
@@ -19,7 +18,6 @@ class AddNewRoute extends React.Component {
   }
   handleOk = () => {
     this.setState({
-      ModalText: 'The modal will be closed after two seconds',
       confirmLoading: true,
     });
     this.createRoute()
@@ -51,7 +49,7 @@ class AddNewRoute extends React.Component {
     })
   }
   render() {
-    const { visible, confirmLoading, ModalText } = this.state;
+    const { visible, confirmLoading } = this.state;
     const { getFieldDecorator } = this.props.form;
     return (
       <div className='add-new-route'>

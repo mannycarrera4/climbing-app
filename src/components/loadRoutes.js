@@ -10,7 +10,6 @@ class LoadRoutes extends React.Component {
 
   }
   render() {
-    // console.warn(this.props)
     return (
       <Button type="primary" onClick={this.props.loadRoutes}>Load Routes</Button>
     )
