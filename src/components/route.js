@@ -11,21 +11,31 @@ class Route extends React.Component {
     });
   }
   handleOk = (e) => {
-    console.log(e);
+    // console.log(e);
+    this.setState({
+      visible: false,
+    });
+    this.handleEditRoute()
+  }
+  handleCancel = (e) => {
+    // console.log(e);
     this.setState({
       visible: false,
     });
   }
-  handleCancel = (e) => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
+  handleEditRoute() {
+    const updatedRoute = {
+      name: this.props.form.getFieldValue('routeName'),
+      rating: this.props.form.getFieldValue('routeRating'),
+      location: this.props.form.getFieldValue('routeLocation'),
+    }
+    console.warn(updatedRoute)
+    this.props.updatedRoute(this.props.index, updatedRoute)
   }
   render() {
     const { visible, confirmLoading, ModalText } = this.state;
     const { getFieldDecorator } = this.props.form;
-    console.warn(this.props.form)
+    // console.warn(this.props.form)
     return (
       <tr>
         <td>{this.props.routeDetails.name}</td>

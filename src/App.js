@@ -70,7 +70,7 @@ class App extends Component {
     // console.warn(oldRoute)
     // console.warn(updatedRoute)
     const newUpdatedRoute = Object.assign(oldRoute, newRoute)
-    console.warn(newUpdatedRoute)
+    // console.warn(newUpdatedRoute)
     this.setState({ newUpdatedRoute })
   }
 
@@ -133,7 +133,10 @@ class App extends Component {
                     routeDetails={this.state.routes[key]}
                     index={key}
                     editRoute={this.editRoute.bind(this)}
-                    removeRoute={this.deleteRoute.bind(this)}>
+                    removeRoute={this.deleteRoute.bind(this)}
+                    editRoute={this.editRoute.bind(this)}
+                    updatedRoute={this.updatedRoute.bind(this)}
+                    >
                   </WrappedRoute>
                 )
               }
