@@ -2,7 +2,7 @@ import React from 'react';
 import Title from './title'
 import AddNewRoute from './addNewRoute'
 import LoadRoutes from './loadRoutes'
-import './header.css'
+import '../css/header.css'
 
 class Header extends React.Component {
   constructor(props) {

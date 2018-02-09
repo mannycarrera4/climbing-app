@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, Button, Modal, Form, Input } from 'antd'
-import './table.css'
+import '../css/table.css'
 
 const FormItem = Form.Item;
 class Route extends React.Component {
@@ -34,7 +34,7 @@ class Route extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <tr>
+      <tr className='table-row'>
         <td>{this.props.routeDetails.name}</td>
         <td>{this.props.routeDetails.rating}</td>
         <td>{this.props.routeDetails.location}</td>

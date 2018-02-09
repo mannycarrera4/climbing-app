@@ -1,9 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import sampleRoutes from './sampleRoutes'
 import Header from './components/header'
 import WrappedRoute from './components/route'
-import './App.css';
-// import 'antd/dist/antd.css';
+import firebase from 'firebase'
+
+import './css/App.css';
+var config = {
+  apiKey: "AIzaSyCZ2XWMwFIIcPzqvxRTmz4c9ysQTQW4V5M",
+  authDomain: "climbing-app-821ac.firebaseapp.com",
+  databaseURL: "https://climbing-app-821ac.firebaseio.com",
+  projectId: "climbing-app-821ac",
+  storageBucket: "climbing-app-821ac.appspot.com",
+  messagingSenderId: "574772061877"
+}
 
 class App extends Component {
   constructor() {
@@ -13,29 +22,21 @@ class App extends Component {
       routes: {},
       date: '',
       dataFromChild: null,
-      // showRoutes: true
       editingRoute: false
-    };
+    }
+    firebase.initializeApp(config);
+    const database = firebase.database();
+    console.warn(database)
   }
 
   loadSampleRoutes(event) {
     this.setState({
       routes: sampleRoutes,
-      // showRoutes: !this.state.showRoutes
     });
   }
 
-  // componentDidMount() {
-  //   fetch('https://www.mountainproject.com/data/get-routes?routeIds=105748391&key=111263172-60b8cb27db624455ea8615f36b9fb11c')
-  //     .then(function (data) {
-  //       return data.json()
-  //       // console.warn(data);
-  //     }).then(function (data) {
-  //       console.warn(data)
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
+  // componentWillMount() {
+  //   firebase.initializeApp(config);
   // }
 
   deleteRoute(routeKey) {
@@ -71,6 +72,7 @@ class App extends Component {
   }
 
   addNewRoute(route) {
+    // talk to firebase
     let routes = {...this.state.routes};
     const timestamp = Date.now(); // create a unique key for route
     routes[`route-${timestamp}`] = route;
