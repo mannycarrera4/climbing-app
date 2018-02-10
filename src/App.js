@@ -1,43 +1,31 @@
 import React, { Component } from 'react'
-import sampleRoutes from './sampleRoutes'
 import Header from './components/header'
 import WrappedRoute from './components/route'
-import firebase from 'firebase'
+import base from './base'
 
 import './css/App.css';
-var config = {
-  apiKey: "AIzaSyCZ2XWMwFIIcPzqvxRTmz4c9ysQTQW4V5M",
-  authDomain: "climbing-app-821ac.firebaseapp.com",
-  databaseURL: "https://climbing-app-821ac.firebaseio.com",
-  projectId: "climbing-app-821ac",
-  storageBucket: "climbing-app-821ac.appspot.com",
-  messagingSenderId: "574772061877"
-}
 
 class App extends Component {
   constructor() {
     super();
-    this.loadSampleRoutes = this.loadSampleRoutes.bind(this)
     this.state = {
       routes: {},
       date: '',
       dataFromChild: null,
       editingRoute: false
     }
-    firebase.initializeApp(config);
-    const database = firebase.database();
-    console.warn(database)
   }
 
-  loadSampleRoutes(event) {
-    this.setState({
-      routes: sampleRoutes,
-    });
+  componentWillMount() {
+    this.ref = base.syncState('routes', {
+      context: this,
+      state: 'routes'
+    })
   }
 
-  // componentWillMount() {
-  //   firebase.initializeApp(config);
-  // }
+  componentWillUnmount() {
+    base.removeBinding(this.ref)
+  }
 
   deleteRoute(routeKey) {
     let routes = {...this.state.routes};
@@ -72,14 +60,11 @@ class App extends Component {
   }
 
   addNewRoute(route) {
-    // talk to firebase
     let routes = {...this.state.routes};
     const timestamp = Date.now(); // create a unique key for route
     routes[`route-${timestamp}`] = route;
-    // console.warn(route)
     this.setState({
-      routes,
-      hideAddNewRoute: false
+      routes
     });
   }
 
@@ -90,20 +75,16 @@ class App extends Component {
     // );
   }
 
-  componentWillUnmount() {
-    clearInterval(this.tick());
-  }
-
-  tick() {
-    this.setState({
-      date: new Date().toString()
-    })
-  }
+  // tick() {
+  //   this.setState({
+  //     date: new Date().toString()
+  //   })
+  // }
 
   render() {
     return (
       <div className="App">
-        <Header loadRoutes={this.loadSampleRoutes.bind(this)} addNewRoute={this.addNewRoute.bind(this)} hideNewRoute={this.state.hideNewRoute} />
+        <Header addNewRoute={this.addNewRoute.bind(this)} hideNewRoute={this.state.hideNewRoute} />
         <div>
           <h3>{this.state.date}</h3>
           <table className="MyClassName">

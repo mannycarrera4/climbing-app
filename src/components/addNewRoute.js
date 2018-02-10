@@ -41,7 +41,7 @@ class AddNewRoute extends React.Component {
       rating: this.props.form.getFieldValue('routeRating'),
       location: this.props.form.getFieldValue('routeLocation')
     }
-    console.warn(route)
+    // console.warn(route)
     this.props.addRoute(route)
     this.props.form.resetFields()
     this.setState({

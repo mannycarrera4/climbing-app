@@ -1,5 +1,5 @@
 import React from 'react';
-
+import firebase from 'firebase'
 class Title extends React.Component {
   constructor(props) {
     super(props)
@@ -8,9 +8,13 @@ class Title extends React.Component {
     }
   }
   handleChange = (evt) => {
+    const titleRef =  firebase.database().ref('title')
+    titleRef.set({
+      title: evt.target.value
+    })
     evt.preventDefault()
     this.setState({
-      title: evt.target.value
+      title: titleRef.title
     })
   }
   render() {
