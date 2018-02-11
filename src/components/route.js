@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Button, Modal, Form, Input } from 'antd'
+import { Icon, Button, Modal, Form, Input, Popconfirm, message } from 'antd'
 import '../css/table.css'
 
 const FormItem = Form.Item;
@@ -22,6 +22,15 @@ class Route extends React.Component {
       visible: false,
     });
   }
+  confirmModal = (e) => {
+    this.props.removeRoute(this.props.index)
+    message.success(`You have successfully deleted  the route ${this.props.routeDetails.name}`);
+  }
+
+  cancel = (e) => {
+    // message.error('Click on No');
+  }
+
   handleEditRoute() {
     const updatedRoute = {
       name: this.props.form.getFieldValue('routeName'),
@@ -43,7 +52,9 @@ class Route extends React.Component {
             Edit
             <Icon type="edit" />
           </Button>
-          <Button onClick={() => this.props.removeRoute(this.props.index)} type='danger'>Delete</Button>
+          <Popconfirm title="Are you sure delete this route?" onConfirm={this.confirmModal} onCancel={this.cancel} okText="Yes" cancelText="No">
+            <a>Delete</a>
+          </Popconfirm>
         </td>
         <Modal
           title={`Editing: ${this.props.routeDetails.name}`}

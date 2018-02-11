@@ -29,6 +29,7 @@ class App extends Component {
 
   deleteRoute(routeKey) {
     let routes = {...this.state.routes};
+    base.remove('routes')
     delete routes[routeKey]
     this.setState({ routes });
   }
@@ -53,10 +54,17 @@ class App extends Component {
     const newRoute = updatedRoute
     const oldRoute = routes[key]
     // console.warn(oldRoute)
-    // console.warn(updatedRoute)
-    const newUpdatedRoute = Object.assign(oldRoute, newRoute)
+    console.warn(base.ref().child('routes').push().key)
+    // base.update('routes', {
+    //   data: {
+    //     name: updatedRoute.name,
+    //     rating: updatedRoute.rating,
+    //     location: updatedRoute.location
+    //   }
+    // })
+    // const newUpdatedRoute = Object.assign(oldRoute, newRoute)
     // console.warn(newUpdatedRoute)
-    this.setState({ newUpdatedRoute })
+    // this.setState({ newUpdatedRoute })
   }
 
   addNewRoute(route) {
@@ -86,7 +94,6 @@ class App extends Component {
       <div className="App">
         <Header addNewRoute={this.addNewRoute.bind(this)} hideNewRoute={this.state.hideNewRoute} />
         <div>
-          <h3>{this.state.date}</h3>
           <table className="MyClassName">
             <thead>
               <tr>
