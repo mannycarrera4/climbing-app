@@ -48,12 +48,13 @@ class Route extends React.Component {
         <td>{this.props.routeDetails.rating}</td>
         <td>{this.props.routeDetails.location}</td>
         <td>
-          <Button className='button-table ' onClick={this.showModal} type='primary'>
+          <a className='edit' onClick={this.showModal} type='primary'>
             Edit
             <Icon type="edit" />
-          </Button>
+          </a>
+          <span>|</span>
           <Popconfirm title="Are you sure delete this route?" onConfirm={this.confirmModal} onCancel={this.cancel} okText="Yes" cancelText="No">
-            <a>Delete</a>
+            <a className='delete'>Delete</a>
           </Popconfirm>
         </td>
         <Modal

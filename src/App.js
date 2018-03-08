@@ -21,6 +21,11 @@ class App extends Component {
       context: this,
       state: 'routes'
     })
+    const endpoint = "http://api.wunderground.com/api/27712612aaec568a/geolookup/conditions/q/IA/Cedar_Rapids.json"
+    fetch(endpoint)
+      .then((response) => {
+        console.warn(response.json())
+      })
   }
 
   componentWillUnmount() {
@@ -28,6 +33,7 @@ class App extends Component {
   }
 
   deleteRoute(routeKey) {
+    console.warn(routeKey)
     let routes = {...this.state.routes};
     base.remove('routes')
     delete routes[routeKey]
@@ -35,36 +41,22 @@ class App extends Component {
   }
 
   editRoute(routeKey) {
-    // console.warn(routeKey)
     let routes = {...this.state.routes};
     const routeData  = routes[routeKey]
-    // console.log(routeData)
-    // delete routes[routeKey]
     this.setState({
       dataFromChild: routeData,
       editingRoute: true,
       routeKey: routeKey
-      // routes: routeData
 
     });
   }
 
   updatedRoute(key, updatedRoute) {
-    let routes = {...this.state.routes};
-    const newRoute = updatedRoute
-    const oldRoute = routes[key]
-    // console.warn(oldRoute)
-    console.warn(base.ref().child('routes').push().key)
-    // base.update('routes', {
-    //   data: {
-    //     name: updatedRoute.name,
-    //     rating: updatedRoute.rating,
-    //     location: updatedRoute.location
-    //   }
-    // })
-    // const newUpdatedRoute = Object.assign(oldRoute, newRoute)
-    // console.warn(newUpdatedRoute)
-    // this.setState({ newUpdatedRoute })
+    const routes = {...this.state.routes};
+    routes[key] = updatedRoute
+    this.setState({
+      routes
+    })
   }
 
   addNewRoute(route) {

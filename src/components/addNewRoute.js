@@ -7,8 +7,7 @@ class AddNewRoute extends React.Component {
     super(props)
     this.state = {
       addNewRouteForm: true,
-      visible: false,
-      confirmLoading: false
+      visible: false
     }
   }
   showModal = () => {
@@ -17,16 +16,10 @@ class AddNewRoute extends React.Component {
     });
   }
   handleOk = () => {
-    this.setState({
-      confirmLoading: true,
-    });
     this.createRoute()
-    setTimeout(() => {
-      this.setState({
-        visible: false,
-        confirmLoading: false,
-      });
-    }, 2000);
+    this.setState({
+      visible: false,
+    });
   }
   handleCancel = () => {
     console.log('Clicked cancel button');
@@ -49,7 +42,7 @@ class AddNewRoute extends React.Component {
     })
   }
   render() {
-    const { visible, confirmLoading } = this.state;
+    const { visible } = this.state;
     const { getFieldDecorator } = this.props.form;
     return (
       <div className='add-new-route'>
@@ -60,7 +53,6 @@ class AddNewRoute extends React.Component {
         <Modal title="Add New Climbing Route"
           visible={visible}
           onOk={this.handleOk}
-          confirmLoading={confirmLoading}
           onCancel={this.handleCancel}
           cancelText= 'Cancel'
           okText='Submit'
